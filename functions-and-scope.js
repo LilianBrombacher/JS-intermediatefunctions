@@ -2,7 +2,7 @@
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
-const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+//const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 /* Opdracht  1: Cum Laude */
 
@@ -10,9 +10,21 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // De administratie moet weten hoeveel studenten er dit blok cum laude zijn afgestudeerd (8 of hoger). Daar moeten namelijk speciale diploma's voor besteld worden.
 // Schrijf de stapjes om dit te kunnen checken eerst uit en vraag jezelf de volgende dingen af:
 // * Hoe kan ik iedere waarde van de array checken op deze conditie?
+//dmv een forloop met if statement
 // * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
+
+// function gradesCheck(){
+//
+// }
+// let score= 0
+// for (let i = 0; i <grades.length ; i++) {
+//     if (grades[i] >= 8){
+//         score++
+//     }
+// }
+// console.log(score)
 
 // ---- Verwachte uitkomst: 6
 
@@ -21,6 +33,29 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+
+function cumLaude(grades) {
+    let score= 0
+    for (let i = 0; i <grades.length ; i++) {
+        if (grades[i] >= 8){
+            score++
+        }
+    }
+    return score;
+    // console.log(score)
+}
+const grades1= [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+const grades2= [6, 4, 5];
+const grades3= [8, 9, 4, 6, 10];
+
+const cumLaudeStudents1 = cumLaude(grades1)
+const cumLaudeStudents2 = cumLaude(grades2)
+const cumLaudeStudents3 = cumLaude(grades3)
+
+console.log(cumLaudeStudents1)
+console.log(cumLaudeStudents2)
+console.log(cumLaudeStudents3)
 
 // ---- Verwachte uitkomsten:
 // cumLaude(grades) geeft 6
@@ -40,6 +75,14 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // Log het antwoord in de terminal.
 
+const som= grades1.reduce((accumulator, huidigCijfer) => accumulator + huidigCijfer, 0);
+//console.log(grades1)
+const average= som / grades1.length
+
+console.log("Het gemiddelde is: "+ average)
+
+
+
 // ---- Verwachte uitkomst: 6.642857142857143
 
 
@@ -47,6 +90,18 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+function averageGrade(grades){
+    if (grades.length === 0){
+        return 0;}
+        const sum= grades1.reduce((accumulator, huidigCijfer) => accumulator + huidigCijfer, 0);
+        const average= sum / grades1.length;
+        return average
+}
+
+console.log("Het gemiddelde is: "+ averageGrade(grades1))
+console.log("Het gemiddelde is: "+ averageGrade(grades2))
+console.log("Het gemiddelde is: "+ averageGrade(grades3))
 
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
@@ -58,7 +113,8 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
-
+const roundedNumber= averageGrade.toFixed(2);
+console.log(parseFloat(roundedNumber));
 
 
 /* Bonusopdracht: hoogste cijfer */
