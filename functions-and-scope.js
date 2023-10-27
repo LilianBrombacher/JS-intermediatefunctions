@@ -62,7 +62,7 @@ console.log(cumLaudeStudents3)
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
-
+//
 
 
 /* Opdracht  2: Gemiddeld cijfer */
