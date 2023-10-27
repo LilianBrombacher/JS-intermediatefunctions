@@ -11,25 +11,19 @@
 
 function getEmailDomain(email) {
     const parts = email.split("@")
+    console.log('parts: ', parts)
     return parts[1];
-    console.log(domain);
+    // console.log(parts[1])
+
 
 }
-getEmailDomain("n.eeken@novi-education.nl")
 
 
-// function getEmailDomain(emailaddress) {
-//     const indexOfApenstaartje = emailaddress.indexOf('@');
-//     const domain = emailaddress.substring(indexOfApenstaartje + 1);
-//
-//     return domain;
-// }
-//
-// const domainOne = getEmailDomain("n.eeken@novi-education.nl");
-// const domainTwo = getEmailDomain("t.mellink@novi.nl");
-// const domainThree = getEmailDomain("a.wiersma@outlook.com");
-//
-// console.log(domainOne, domainTwo, domainThree);
+console.log(getEmailDomain("n.eeken@novi-education.nl"))
+console.log(getEmailDomain("t.mellink@novi.nl"))
+console.log(getEmailDomain("a.wiersma@outlook.com"))
+
+
 
 /* Opdracht  2 */
 // Schrijf een functie genaamd typeOfEmail, die een emailadres verwacht. De functie checkt of het emailadres een novi domein heeft (medewerker), een novi-education domein (student), of extern domein (zoals gmail of outlook)
@@ -39,26 +33,49 @@ getEmailDomain("n.eeken@novi-education.nl")
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+function typeOfEmail(emailAdress) {
 
-function typeOfEmail(email){
-    let str = getEmailDomain(email)
-    // console.log(str);
-    let arrStr = str.split(".",3);
-    console.log(arrStr)
-    console.log(arrStr[0]);
-    switch (arrStr[0]) {
-        case "novi":
-            console.log("MDW");
-            break;
-        case "novi-education":
-            console.log("student");
-            break;
-        default:
-            console.log("EXT");
-            break;
+    const arrayPart = emailAdress.split("@");
+
+    if (arrayPart[1] === "novi-education.nl") {
+        return "Student"
+    } else if (arrayPart[1] === "novi.nl") {
+        return "Medewerker";
+    } else if (arrayPart[1] === "outlook.com" || "gmail.com") {
+        return "Extern";
+    } else {
+        return "onbekend email-adres";
+    }
+}
+    console.log(typeOfEmail("n.eeken@novi-education.nl"));
+    console.log(typeOfEmail("t.mellink@novi.nl"));
+    console.log(typeOfEmail("novi.nlaapjesk@outlook.com"));
+    console.log(typeOfEmail("a.wiersma@outlook.com"));
+    console.log(typeOfEmail("a.wiersma@gmail.com"));
+
+function typeOfEmail2(emailAdress){
+
+    const arrayPart= emailAdress.split("@")[1];
+    console.log(arrayPart)
+    switch(arrayPart) {
+        case"novi-education.nl":
+            return "Student"
+    }
+    switch(arrayPart) {
+        case"novi.nl":
+            return "Medewerker"
+    }
+    switch(arrayPart) {
+        case"outlook.com":
+            return "Extern"
     }
 
+
 }
+
+console.log(typeOfEmail2("n.eeken@novi-education.nl"))
+console.log(typeOfEmail2("t.mellink@novi.nl"))
+console.log(typeOfEmail2("novi.nlaapjesk@outlook.com"))
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
